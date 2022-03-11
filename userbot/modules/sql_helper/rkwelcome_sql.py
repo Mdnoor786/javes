@@ -57,8 +57,7 @@ def add_rkwelcome_setting(
 
 
 def rm_rkwelcome_setting(chat_id):
-    rem = SESSION.query(rkwelcome).get(chat_id)
-    if rem:
+    if rem := SESSION.query(rkwelcome).get(chat_id):
         SESSION.delete(rem)
         SESSION.commit()
 

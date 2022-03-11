@@ -12,6 +12,8 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 load_dotenv("config.env")
 from distutils.util import strtobool as sb
+
+
 class config(object):
     API_KEY = os.environ.get("TELEGRAM_API_KEY", None)
     APP_ID = os.environ.get("TELEGRAM_API_KEY", None)
@@ -22,7 +24,7 @@ class config(object):
     LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
     GENIUS = os.environ.get("GENIUS_API_TOKEN", None)
     GENIUS_API_TOKEN = os.environ.get("GENIUS_API_TOKEN", None)
-    ENV = os.environ.get("ENV", False)   
+    ENV = os.environ.get("ENV", False)
     OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
@@ -42,10 +44,10 @@ class config(object):
     LOGGER = True
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-    SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
+    SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
     LESS_SPAMMY = os.environ.get("LESS_SPAMMY", None)
-    PM_MESSAGE = os.environ.get(f"PM_MESSAGE", None)
+    PM_MESSAGE = os.environ.get("PM_MESSAGE", None)
     JAVES_NAME = os.environ.get("JAVES_NAME", None)
     ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
     ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
@@ -62,7 +64,7 @@ class config(object):
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
     COUNTRY = str(os.environ.get("COUNTRY", ""))
     TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
-    PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", -100))   
+    PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", -100))
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
     NO_SONGS = bool(os.environ.get("NO_SONGS", False))
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
@@ -74,6 +76,7 @@ class config(object):
     MAX_FLOOD_IN_P_M_s = int(os.environ.get("MAX_FLOOD_IN_P_M_s", 3))
     PRIVATE_GROUP_ID = os.environ.get("BOTLOG_CHATID", None)
     DB_URI = os.environ.get("DATABASE_URL", None)
+
 class Development(config):
     LOGGER = True
 

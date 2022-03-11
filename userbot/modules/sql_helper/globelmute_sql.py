@@ -33,7 +33,6 @@ def globelmute(sender):
 
 
 def unglobelmute(sender):
-    rem = SESSION.query(GLOBELMute).get((str(sender)))
-    if rem:
+    if rem := SESSION.query(GLOBELMute).get((str(sender))):
         SESSION.delete(rem)
         SESSION.commit()
